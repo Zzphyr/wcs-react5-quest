@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// API: https://thesimpsonsquoteapi.glitch.me/
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import BtnQuote from './BtnQuote';
+import DisplayQuote from './DisplayQuote'
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quote: '',
+    }
+  }
+
+  getQuote() {
+    fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          quote: data[0], // see the json
+        })
+      });
+  }
+
+  render(){
+    return (
+      <>
+        < BtnQuote onClick={() => this.getQuote() } />
+        < DisplayQuote quote={this.state.quote}/>
+      </>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,12 @@
+.btn-style {
+    padding: 5px 12px;
+    font-size: 20px;
+    border: 1px solid rgb(93, 22, 160);
+    color: rgb(93, 22, 160);
+    border-radius: 10px;
+}
+
+.btn-style:hover {
+    background: cornflowerblue;
+    color: cornsilk;
+}
