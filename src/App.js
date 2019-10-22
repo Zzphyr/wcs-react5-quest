@@ -1,15 +1,15 @@
 // API: https://thesimpsonsquoteapi.glitch.me/
+// If quotes aren't appearing on screen, please confirm whether the API is down 
 
 import React, { Component } from 'react';
 import BtnQuote from './BtnQuote';
 import DisplayQuote from './DisplayQuote'
 
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: {}, // it will receive an object to initialize as object
+      quote: {}, // it will receive an object from API, so initialize as an object
     }
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          quote: data[0], // see the json
+          quote: data[0], // see the json structure
         })
       });
   }
