@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: '',
+      quote: {}, // it will receive an object to initialize as object
     }
   }
 
